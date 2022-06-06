@@ -1,6 +1,6 @@
 console.log('Hello, world')
 
-const API_URL_search = 'https://api.thedogapi.com/v1/images/search?limit=2&';
+const API_URL_search = 'https://api.thedogapi.com/v1/images';
 const API_URL_favorite = 'https://api.thedogapi.com/v1/favourites';
 
 
@@ -8,7 +8,7 @@ const API_KEY ='2e45e3d2-a930-4096-a770-a6915c95e48a'
 const spanError = document.getElementById('error')
 
 async function loadrandomDogs() {
-  const res = await fetch(`${API_URL_search}api_key=${API_KEY} `);
+  const res = await fetch(`${API_URL_search}/search?limit=2&`);
   const data = await res.json();
 
   console.log(data[0]);
@@ -33,12 +33,17 @@ async function loadrandomDogs() {
 }
 
 async function loadFavoriteDogos(){
-    const  res = await fetch(`${API_URL_favorite}?api_key=${API_KEY}`);
+    const  res = await fetch(`${API_URL_favorite}`,{
+      method: 'GET',
+      headers:{
+        'x-api-key': API_KEY
+      },
+});
     const data = await res.json()
-    console.log(data);
+    
 
     if(res.status !==200){
-    errors(res.status)
+      spanError.innerHTML = "Hubo un error al cargar los dogos"
   }else{
     const favoritesDogosSection = document.getElementById('favoritesDogos')
     favoritesDogosSection.innerHTML="";
@@ -72,10 +77,11 @@ async function loadFavoriteDogos(){
 }
 
  async function saveFavoriteDogos(id){
-  const res = await fetch(`${API_URL_favorite}?api_key=${API_KEY}`, {
+  const res = await fetch(`${API_URL_favorite}`, {
     method: 'POST',
     headers:{
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'x-api-key': API_KEY
     },
     body: JSON.stringify({
       image_id: id
@@ -97,8 +103,11 @@ loadFavoriteDogos()
 
 
 async function deleteFavorite(id){
-  const res = await fetch(`${API_URL_favorite}/${id}?api_key=${API_KEY}`, {
+  const res = await fetch(`${API_URL_favorite}/${id}`, {
     method: 'DELETE',    
+    headers:{
+      'x-api-key': API_KEY
+    }
   })
   
    if(res.status !== 200){
@@ -108,7 +117,34 @@ async function deleteFavorite(id){
      loadFavoriteDogos()
    }
 }
- 
+ async function uploadFoto(){
+   const form = document.getElementById('uploadingform');
+   const formData = new FormData(form);
+
+   console.log(formData.get('file'));
+  const res = await fetch(`${API_URL_search}/upload`,{
+    method: 'POST',
+    headers:{
+      /* 'content-type': 'multipart/form-data', */
+      'x-api-key': API_KEY,
+    },
+    body: formData
+  })
+
+  const data = await res.json();
+
+  if(res.status !== 201){
+    spanError.innerHTML = `Hubo un error al subir perrito: ${res.status} ${data.message}`
+    console.log({data});
+  }else{
+    console.log('perrito agregado');
+    console.log({ data });
+  console.log(data.url);
+  saveFavoriteDogos(data.id)
+  }
+ }
+
+
 
 
 loadrandomDogs()
