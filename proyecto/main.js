@@ -1,14 +1,18 @@
-console.log('Hello, world')
+const API_KEY ='2e45e3d2-a930-4096-a770-a6915c95e48a'
+const api = axios.create({
+  baseURL:'https://api.thedogapi.com/v1/'
+})
+api.defaults.headers.common['x-api-key'] =API_KEY
 
 const API_URL_search = 'https://api.thedogapi.com/v1/images';
 const API_URL_favorite = 'https://api.thedogapi.com/v1/favourites';
 
 
-const API_KEY ='2e45e3d2-a930-4096-a770-a6915c95e48a'
+
 const spanError = document.getElementById('error')
 
 async function loadrandomDogs() {
-  const res = await fetch(`${API_URL_search}/search?limit=2&`);
+  const res = await  fetch(`${API_URL_search}/search?limit=2&`); 
   const data = await res.json();
 
   console.log(data[0]);
@@ -33,16 +37,17 @@ async function loadrandomDogs() {
 }
 
 async function loadFavoriteDogos(){
-    const  res = await fetch(`${API_URL_favorite}`,{
+  const {data, status} = await api.get('favourites')
+    /* const  res = await fetch(`${API_URL_favorite}`,{
       method: 'GET',
       headers:{
         'x-api-key': API_KEY
       },
 });
-    const data = await res.json()
+    const data = await res.json() */
     
 
-    if(res.status !==200){
+    if(status !==200){
       spanError.innerHTML = "Hubo un error al cargar los dogos"
   }else{
     const favoritesDogosSection = document.getElementById('favoritesDogos')
@@ -77,24 +82,13 @@ async function loadFavoriteDogos(){
 }
 
  async function saveFavoriteDogos(id){
-  const res = await fetch(`${API_URL_favorite}`, {
-    method: 'POST',
-    headers:{
-      'Content-Type': 'application/json',
-      'x-api-key': API_KEY
-    },
-    body: JSON.stringify({
-      image_id: id
-    })
-  })
-  
-   const data = await res.json();
 
-  console.log('Save')
-  console.log(res)
+  const {data, status} = await api.post('favourites',{
+    image_id: id
+  })  
 
-  if (res.status !== 200) {
-    spanError.innerHTML = "Hubo un error: " + res.status + data.message;
+  if (status !== 200) {
+    spanError.innerHTML = "Hubo un error: " + status + data.message;
 } 
 
 loadFavoriteDogos()
@@ -103,20 +97,23 @@ loadFavoriteDogos()
 
 
 async function deleteFavorite(id){
+  const {data, status} = await api.delete(`favourites/${id}`)
+/* 
   const res = await fetch(`${API_URL_favorite}/${id}`, {
     method: 'DELETE',    
     headers:{
       'x-api-key': API_KEY
     }
-  })
+  }) */
   
-   if(res.status !== 200){
+   if(status !== 200){
      spanError.innerHTML = "Hubo un error en el borrado"
    }else{
      console.log('borrado con exito');
      loadFavoriteDogos()
    }
 }
+
  async function uploadFoto(){
    const form = document.getElementById('uploadingform');
    const formData = new FormData(form);
