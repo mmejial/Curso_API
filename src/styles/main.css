@@ -1,0 +1,24 @@
+/* fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+/* pages */
+@import url(./csspages/nav.css);
+@import url(./csspages/slider.css);
+
+:root{
+    /* colors */
+    --PrimaryBlack: black;
+    --SecondaryBlack: #666;
+    --base_red: #f2625f;
+
+
+
+    /* FONTS */
+    --mulish: 'Playfair Display', serif;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
