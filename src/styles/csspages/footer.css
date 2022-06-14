@@ -1,0 +1,11 @@
+.footerContainer__desktop{
+    
+    height: 200px;
+    width: 100%;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 12px;
+    background-color: #ccc;
+    margin: 0 auto;
+}

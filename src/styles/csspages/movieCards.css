@@ -1,0 +1,65 @@
+.mainCard__Container{
+    
+    
+
+    width: 100%;
+    margin-top: 120px;
+    height: auto;
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fill,200px);/* auto fill es para que se generen solas */
+    gap: 26px;
+    place-content:center ;
+    padding: 32px;
+    
+  }
+
+  .movierCard{
+    border: 1px solid var(--SecondaryBlack);
+    height: 300px;
+    width: 200px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 6px var(--base_red);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    
+    
+  }
+  .imgCard{
+    
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+
+  }
+
+  .clasificacionMovie{
+    position: absolute;
+    background-color: orange;
+    
+    right: 18px;
+    top: 18px;
+    width: 30px;
+    height:30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+  }
+  .calificacionMovie{
+    position: absolute;
+    background-color: orange;
+    
+    right: 18px;
+    bottom: 18px;
+    width: 30px;
+    height:30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
