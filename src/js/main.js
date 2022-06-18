@@ -16,6 +16,7 @@ async function getTrendingMoviesPreview(){
     const createImg= document.createElement('img')  
     createImg.classList.add('img__slider')
     createImg.setAttribute('src', `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`)
+    createImg.setAttribute('alt',item.original_title )
     const textoSlider = document.createElement('div');
     const texto = item.original_title;
     textoSlider.classList.add('text')
