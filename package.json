@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "Marco Mejia Lopez <marcomejia159010@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
 }
