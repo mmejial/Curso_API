@@ -1,12 +1,28 @@
-const Api_URL = 'https://api.themoviedb.org/3';
+
+const api = axios.create({
+  baseURL: 'https://api.themoviedb.org/3/',
+  headers:{
+    'Content-Type': 'application/json;charset=utf-8',
+  },
+  params:{
+    'api_key':'4070f0ad7e0c3d1d4ce51071d9374427'
+  }
+})
+
+
+/* const Api_URL = 'https://api.themoviedb.org/3'; */
 
 async function getTrendingMoviesPreview(){
+  const {data,status} = await api.get('trending/movie/day')
 
-  const res = await fetch(`${Api_URL}/trending/movie/day?api_key=4070f0ad7e0c3d1d4ce51071d9374427`)
-  const data = await res.json();
+  /* const res = await fetch(`${Api_URL}/trending/movie/day?api_key=4070f0ad7e0c3d1d4ce51071d9374427`)
+  const data = await res.json(); */
+  console.log(status);
   const movies = data.results;
   console.log({data, movies});
-  
+
+
+  /* console.log(nose); */
   
   movies.map(item=>{
     const container = document.getElementById('sliderContainer');
@@ -30,4 +46,26 @@ async function getTrendingMoviesPreview(){
   })
 
 }
+
+
+/* const nose=  movies.sort((a,b)=>
+
+    
+      b.vote_average <a.vote_average
+      /* if(b.vote_average<a.vote_average){ */
+       
+        
+      /* } */
+      
+      
+
+    
+    /* )  
+    nose.map(item =>{
+      const prueba = document.getElementById('prueba')
+      const imagenPrueba = document.createElement('img')
+      imagenPrueba.setAttribute('src', `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`)
+      prueba.appendChild(imagenPrueba)
+    }) */ 
+
 getTrendingMoviesPreview()
