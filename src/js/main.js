@@ -17,7 +17,7 @@ async function getTrendingMoviesPreview(){
 
   /* const res = await fetch(`${Api_URL}/trending/movie/day?api_key=4070f0ad7e0c3d1d4ce51071d9374427`)
   const data = await res.json(); */
-  console.log(status);
+  
   const movies = data.results;
   console.log({data, movies});
 
@@ -67,5 +67,18 @@ async function getTrendingMoviesPreview(){
       imagenPrueba.setAttribute('src', `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`)
       prueba.appendChild(imagenPrueba)
     }) */ 
+async function cardsMoviesPrevew(){
+  const {data, status} = await api.get('trending/movie/day')
 
+  const cardsMovies = data.results;
+  const container = document.querySelector('.mainCard__Container')
+cardsMovies.map(item=>
+  {
+    const movierCard = createElement('div')
+    movierCard.classList.add('movierCard')
+    
+
+
+  })
+}
 getTrendingMoviesPreview()
