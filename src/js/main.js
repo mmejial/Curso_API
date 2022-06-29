@@ -98,3 +98,8 @@ cardsMovies.map(item=>
 }
 getTrendingMoviesPreview()
 cardsMoviesPrevew()
+
+
+function prueba(){
+  console.log('paquito');
+}

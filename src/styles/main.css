@@ -4,7 +4,11 @@
 
 /* pages */
 @import url(./csspages/nav.css);
+
 @import url(./csspages/slider.css);
+
+@import url(./csspages/generos.css);
+
 @import url(./csspages/movieCards.css);
 @import url(./csspages/footer.css);
 
