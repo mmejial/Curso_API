@@ -8,7 +8,10 @@
 @import url(./csspages/movieCards.css);
 @import url(./csspages/footer.css);
 
-
+html{
+    font-size: 62.5%;
+    
+}
 :root{
     /* colors */
     --PrimaryBlack: black;

@@ -72,13 +72,29 @@ async function cardsMoviesPrevew(){
 
   const cardsMovies = data.results;
   const container = document.querySelector('.mainCard__Container')
+  console.log('hola');
+  console.log(container);
+  console.log(cardsMovies); 
 cardsMovies.map(item=>
   {
-    const movierCard = createElement('div')
-    movierCard.classList.add('movierCard')
+    const movierCard = document.createElement('div');
+    movierCard.classList.add('movierCard');
+    const imgCard = document.createElement('img');
+    imgCard.classList.add('imgCard');
+    imgCard.setAttribute('src', `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`) 
+    const tittleCard = document.createElement('h2');
+    tittleCard.classList.add('titulo__cardMovie')
+    const tituloApi = document.createTextNode(item.original_title)
+    
+    
+    container.appendChild(movierCard);
+    movierCard.appendChild(imgCard)
+    movierCard.appendChild(tittleCard)
+    tittleCard.appendChild(tituloApi)
     
 
 
   })
 }
 getTrendingMoviesPreview()
+cardsMoviesPrevew()

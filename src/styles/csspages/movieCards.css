@@ -54,12 +54,34 @@
     position: absolute;
     background-color: orange;
     
-    right: 18px;
-    bottom: 18px;
+    left: 18px;
+    top: 18px;
     width: 30px;
     height:30px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .titulo__cardMovie{
+    position: absolute;
+    bottom: 18px;
+    background-color: orange;
+    width: 100%;
+    color: white;
+
+    width: 100%;
+    text-align: center;
+    background-color:rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-size: 1.4rem;
+    
+    display: none;
+    
+
+  }
+  .movierCard:hover .titulo__cardMovie{
+    display: block;
+    transition: all 10s ease-in;
   }
