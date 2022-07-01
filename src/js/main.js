@@ -19,6 +19,7 @@ async function getTrendingMoviesPreview(){
   const data = await res.json(); */
   
   const movies = data.results;
+  console.log('movies');
   console.log({data, movies});
 
 
@@ -96,10 +97,34 @@ cardsMovies.map(item=>
 
   })
 }
+
+
+async function getMoviesGeneres(){
+  const {data, status} = await api.get('genre/movie/list');
+  
+  const genres= data.ggitenres;
+
+  console.log(genres);
+  
+  const generesContainer = document.querySelector('.about--container--grid')
+  console.log(generesContainer);
+   genres.map(item=>{
+  
+  const genesresInnerlist = document.createElement('li');
+   genesresInnerlist.classList.add('licardo')
+  const generetitle= item.name
+  genesresInnerlist.innerHTML= generetitle 
+  generesContainer.appendChild(genesresInnerlist)
+
+  })  
+}
+
+
+
+
+
+
+
 getTrendingMoviesPreview()
 cardsMoviesPrevew()
-
-
-function prueba(){
-  console.log('paquito');
-}
+getMoviesGeneres()
