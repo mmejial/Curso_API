@@ -102,7 +102,7 @@ cardsMovies.map(item=>
 async function getMoviesGeneres(){
   const {data, status} = await api.get('genre/movie/list');
   
-  const genres= data.ggitenres;
+  const genres= data.genres;
 
   console.log(genres);
   
@@ -111,9 +111,15 @@ async function getMoviesGeneres(){
    genres.map(item=>{
   
   const genesresInnerlist = document.createElement('li');
+  const genereTittle = document.createElement('h4');
+  genesresInnerlist.addEventListener('click',()=>{
+    location.hash= `#categories=${item.id}`
+  })
+
    genesresInnerlist.classList.add('licardo')
-  const generetitle= item.name
-  genesresInnerlist.innerHTML= generetitle 
+  const generestitle= item.name
+  genereTittle.innerHTML= generestitle 
+  genesresInnerlist.appendChild(genereTittle)
   generesContainer.appendChild(genesresInnerlist)
 
   })  
@@ -128,3 +134,25 @@ async function getMoviesGeneres(){
 getTrendingMoviesPreview()
 cardsMoviesPrevew()
 getMoviesGeneres()
+
+
+/* function pruebas(p){
+  if( verdadero(p)){
+    console.log('es verdad');
+  }else{
+    console.log('es falso');
+  }
+}
+
+
+
+function verdadero(parametro){
+  if (parametro == true){
+    return true
+  }
+  else{
+    return false
+  }
+}
+
+pruebas(false) */

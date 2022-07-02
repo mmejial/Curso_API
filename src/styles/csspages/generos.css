@@ -26,6 +26,9 @@
     padding: 8px;
     border-radius: 8px;
 }
+.licardo:hover{
+    cursor: pointer;
+}
 
 .about__container--title{
     margin: 0 auto;

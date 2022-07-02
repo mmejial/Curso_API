@@ -12,7 +12,10 @@ function navigator(){
         searchPage();
     }else if(location.hash.startsWith('#movie=')){
         movieDeatailsPage();
-    }else{
+    }else if(location.hash.startsWith('#categories=')){
+        movieCategoriesPage()
+    }
+    else{
         homePage();
     }
     
@@ -32,4 +35,10 @@ function searchPage(){
 }
 function movieDeatailsPage(){
     console.log('movies deails');
+}
+function movieCategoriesPage(){
+    
+    const slider = document.getElementById('sliderContainer')
+    slider.classList.add('inactive')
+
 }
