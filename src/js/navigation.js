@@ -37,8 +37,14 @@ function movieDeatailsPage(){
     console.log('movies deails');
 }
 function movieCategoriesPage(){
-    
+    console.log('categories');
     const slider = document.getElementById('sliderContainer')
     slider.classList.add('inactive')
+
+
+    const url =location.hash.split('=');
+    const []
+
+     getMoviesByCategorie(id) 
 
 }

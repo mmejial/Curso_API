@@ -73,9 +73,7 @@ async function cardsMoviesPrevew(){
 
   const cardsMovies = data.results;
   const container = document.querySelector('.mainCard__Container')
-  console.log('hola');
-  console.log(container);
-  console.log(cardsMovies); 
+  
 cardsMovies.map(item=>
   {
     const movierCard = document.createElement('div');
@@ -113,7 +111,7 @@ async function getMoviesGeneres(){
   const genesresInnerlist = document.createElement('li');
   const genereTittle = document.createElement('h4');
   genesresInnerlist.addEventListener('click',()=>{
-    location.hash= `#categories=${item.id}`
+    location.hash= `#categories=${item.id}-${item.name}`
   })
 
    genesresInnerlist.classList.add('licardo')
@@ -127,7 +125,38 @@ async function getMoviesGeneres(){
 
 
 
+async function getMoviesByCategorie(id){
+  const {data, status} = await api.get('discover/movie',{
+    params:{
+      with_genres:id
+    }
+  })
 
+  const cardsMovies = data.results;
+  const container = document.querySelector('.mainCard__Container')
+  container = ''
+cardsMovies.map(item=>
+  {
+    
+    const movierCard = document.createElement('div');
+    movierCard.classList.add('movierCard');
+    const imgCard = document.createElement('img');
+    imgCard.classList.add('imgCard');
+    imgCard.setAttribute('src', `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`) 
+    const tittleCard = document.createElement('h2');
+    tittleCard.classList.add('titulo__cardMovie')
+    const tituloApi = document.createTextNode(item.original_title)
+    
+    
+    container.appendChild(movierCard);
+    movierCard.appendChild(imgCard)
+    movierCard.appendChild(tittleCard)
+    tittleCard.appendChild(tituloApi)
+    
+
+
+  })
+}
 
 
 
