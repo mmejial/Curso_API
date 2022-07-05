@@ -105,4 +105,4 @@ dist
 
 
 #apikey
-src/js/module/APIKEY.js
+src/js/APIKEY.js
