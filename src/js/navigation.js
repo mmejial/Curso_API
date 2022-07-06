@@ -31,7 +31,9 @@ function homePage(){
 }
 
 function searchPage(){
+
     console.log('search');
+    console.log(mainButton);
 }
 function movieDeatailsPage(){
     console.log('movies deails');
@@ -41,10 +43,12 @@ function movieCategoriesPage(){
     const slider = document.getElementById('sliderContainer')
     slider.classList.add('inactive')
 
+    const titlecardMod = document.querySelector('.cards__tittle')
+    
+    const [_,categoryData] =location.hash.split('=');
+    const [categoryId,categoryname] = categoryData.split('-');
 
-    const url =location.hash.split('=');
-    const []
-
-     getMoviesByCategorie(id) 
+    titlecardMod.innerHTML = categoryname
+     getMoviesByCategorie(categoryId) 
 
 }

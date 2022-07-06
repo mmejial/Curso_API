@@ -134,7 +134,7 @@ async function getMoviesByCategorie(id){
 
   const cardsMovies = data.results;
   const container = document.querySelector('.mainCard__Container')
-  container = ''
+  container.innerHTML = '' 
 cardsMovies.map(item=>
   {
     
