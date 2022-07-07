@@ -30,8 +30,19 @@
 
     <div class="header__searchContainer--desktop">
         <form action="">
-            <input class="input__search" type="text" placeholder="Buscar...">
-            <button onclick="searchPage()" class="main__btn" type="button" ><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input  class="input__search" type="text" placeholder="Buscar...">
+            <div class="searchContainer inactive">
+                <ul class="searchListContainer">
+                    <div class="borrar"><span>X</span></div>
+                    <li class="listElementContainer">
+                        <img class="imgListSample" src="./src/img/img3.jpg" alt="imagen prueba">
+                        <h5 class="titleListSample">titulo prueba</h5>
+
+                    </li>
+
+                </ul>
+            </div>
+            
         </form>
     </div>
 </header>
@@ -170,6 +181,7 @@
     <script src="./src/js/navigation.js"></script>
     <script src="./src/js/slider.js"></script>
     <script src="./src/js/main.js"></script>
+    <script src="./src/js/buscador.js"></script>
     
 </body>
 </html>

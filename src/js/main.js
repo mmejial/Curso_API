@@ -78,6 +78,9 @@ cardsMovies.map(item=>
   {
     const movierCard = document.createElement('div');
     movierCard.classList.add('movierCard');
+    movierCard.addEventListener('click',()=>{
+      console.log('paquito');
+    })
     const imgCard = document.createElement('img');
     imgCard.classList.add('imgCard');
     imgCard.setAttribute('src', `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`) 
@@ -133,13 +136,17 @@ async function getMoviesByCategorie(id){
   })
 
   const cardsMovies = data.results;
-  const container = document.querySelector('.mainCard__Container')
+  
   container.innerHTML = '' 
 cardsMovies.map(item=>
   {
     
     const movierCard = document.createElement('div');
     movierCard.classList.add('movierCard');
+    movierCard.addEventListener('click',()=>{
+      location.hash = `#movie=${item.id}-${item.original_title}`
+      console.log('paquito');
+    })
     const imgCard = document.createElement('img');
     imgCard.classList.add('imgCard');
     imgCard.setAttribute('src', `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`) 
@@ -185,3 +192,9 @@ function verdadero(parametro){
 }
 
 pruebas(false) */
+
+async function movieDetailsPage(movieId){
+ 
+}
+
+/* 507086 */

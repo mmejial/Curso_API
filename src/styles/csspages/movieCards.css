@@ -37,6 +37,7 @@
     
     
   }
+  
   .imgCard{
     
     width: 100%;
@@ -91,6 +92,9 @@
     display: none;
     
 
+  }
+  .movierCard:hover{
+    cursor: pointer;
   }
   .movierCard:hover .titulo__cardMovie{
     display: block;

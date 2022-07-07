@@ -6,10 +6,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie App</title>
 </head>
+<style>
+    .sinopsisPageContainer{
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        grid-template-rows: repeat(4,1fr);
+        
+        margin: 12px;
+        padding: 12px;
+        gap: 12px;
+        position: relative;
+        box-shadow: 1px 1px 2px 2px #666;
+        overflow: hidden;
+        border-radius: 5px;
+    
+    
+    
+    }
+    .sinopsisPageContainer::before{
+        content: "";
+        background: url(./src/img/movie-1344805_1920.jpg)  ;
+        background-size: cover;
+        
+        
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.35;
+    }
+    .sinopsisImg{
+        
+        width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+
+    grid-column-start:1 ;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    z-index: 1;
+    
+    
+    
+    
+    
+    }
+    .sinopsisTitle{
+        z-index: 1;
+        justify-self: center;
+        align-self: center;
+        
+        text-align: center;
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        letter-spacing: 1.2px;
+
+        
+    }
+    .sinopsisSinopsis{
+        z-index: 1;
+        grid-column-start: 5;
+        grid-column-end: 6;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        justify-self: end;
+        align-self: flex-end;
+
+        font-size: 2.0rem;
+        letter-spacing: 2px;
+
+    }
+    .sinopsisContent{
+        z-index: 1;
+        grid-column-start: 4;
+        grid-column-end: 6;
+        grid-row-start: 2;
+        grid-row-end: 4;
+        font-size: 1.2rem;
+        letter-spacing: 1.4px;
+    }
+    @media (max-width:1020px) {
+        .sinopsisPageContainer{
+            display: flex;
+            flex-direction: column;
+            
+        }
+        .sinopsisSinopsis{
+            display: none;
+        }
+        
+        
+    }
+    @media (max-width:320px){
+        .sinopsisImg{
+            height: 320px;
+        }
+    }
+
+</style>
 <body>
-    <img src="" alt="titulo">
-    <h2>sinopsis</h2>
-    <p class="sinopsis"></p>
+    <div class="sinopsisPageContainer">
+        <img class="sinopsisImg" src="./src/img/img3.jpg" alt="movieImg">
+        <h2 class="sinopsisTitle"> suscipit asperiores magni. Cupiditate aliquam eius obcaecati.</h2>
+        <h3 class="sinopsisSinopsis">sinopsis</h3>
+        <p class="sinopsisContent">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus enim ab laboriosam nemo! Natus quasi, laudantium temporibus repellat quos ab maiores impedit adipisci harum facere quidem, doloribus reiciendis non autem.</p>
+    </div>
     
 </body>
 </html>

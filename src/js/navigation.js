@@ -36,11 +36,15 @@ function searchPage(){
     console.log(mainButton);
 }
 function movieDeatailsPage(){
+    
     console.log('movies deails');
+    slider.classList.add('inactive')
+    aboutContainer.classList.add('inactive')
+
 }
 function movieCategoriesPage(){
     console.log('categories');
-    const slider = document.getElementById('sliderContainer')
+    
     slider.classList.add('inactive')
 
     const titlecardMod = document.querySelector('.cards__tittle')
