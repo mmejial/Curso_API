@@ -33,13 +33,27 @@ function homePage(){
 function searchPage(){
 
     console.log('search');
-    console.log(mainButton);
+
+    const [_,busqueda] = location.hash.split('=')
+    console.log(busqueda);
+    
 }
 function movieDeatailsPage(){
     
     console.log('movies deails');
     slider.classList.add('inactive')
     aboutContainer.classList.add('inactive')
+    cardsConntainer.classList.add('inactive')
+    sinopsisPageContainer.classList.remove('inactive')
+
+    const [_,moviedata] = location.hash.split('=');
+    const [movieId,movieName] = moviedata.split('-')
+   /*  
+    const movie_id = parseInt(movieId)
+    console.log('id de la pelicula'); */
+    console.log(movieId);
+    
+    movieDetailsPage(movieId)
 
 }
 function movieCategoriesPage(){

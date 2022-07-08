@@ -10,6 +10,9 @@
 @import url(./csspages/generos.css);
 
 @import url(./csspages/movieCards.css);
+
+@import url(./csspages/movieDetailsPage.css);
+
 @import url(./csspages/footer.css);
 
 html{

@@ -171,7 +171,6 @@ getTrendingMoviesPreview()
 cardsMoviesPrevew()
 getMoviesGeneres()
 
-
 /* function pruebas(p){
   if( verdadero(p)){
     console.log('es verdad');
@@ -193,8 +192,37 @@ function verdadero(parametro){
 
 pruebas(false) */
 
-async function movieDetailsPage(movieId){
+async function movieDetailsPage(movie_id){
+  
+  const {data} = await api.get(`movie/${movie_id}`)
+
+  console.log({data});
+
+  
+  
+  
+  const sinopsisImg = document.createElement('img');
+  sinopsisImg.classList.add('sinopsisImg');
+  sinopsisImg.setAttribute('src',`https://image.tmdb.org/t/p/w500/${data.poster_path}`)
+
+  const sinopsisTitle = document.createElement('h2');
+  sinopsisTitle.classList.add('sinopsisTitle')
+  sinopsisTitle.innerHTML=data.original_title
+
+  const sinopsisContent = document.createElement('p');
+  sinopsisContent.classList.add('sinopsisContent')
+  sinopsisContent.innerHTML=data.overview;
+
+  
+
+
+ sinopsisPageContainer.appendChild(sinopsisImg)
+ sinopsisPageContainer.appendChild(sinopsisTitle)
+ sinopsisPageContainer.appendChild(sinopsisContent)
+  
  
 }
 
 /* 507086 */
+
+//api.themoviedb.org/3/movie/550?api_key=4070f0ad7e0c3d1d4ce51071d9374427
