@@ -19,7 +19,7 @@ async function removeSearchFrame(){
 
   searchContainer.classList.add('inactive')
 
-  console.log('se borro');
+  searchContainer.innerHTML=''
 
   /*   const datos = [];
     datos.push(...movieResults); */

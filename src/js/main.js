@@ -226,3 +226,43 @@ async function movieDetailsPage(movie_id){
 /* 507086 */
 
 //api.themoviedb.org/3/movie/550?api_key=4070f0ad7e0c3d1d4ce51071d9374427
+
+async function getMoviesBySearch(query){
+  const {data} = await api.get('search/movie',{
+    params:{
+      query
+    }
+  })
+
+  
+
+  
+  searchListContainer.innerHTML=''
+  searchContainer.classList.remove('inactive')
+  
+  const resultsBySearchMovies = data.results
+  console.log([resultsBySearchMovies]);
+
+
+  resultsBySearchMovies.map(item=>{
+    const listElementContainer = document.createElement('li');
+    listElementContainer.classList.add('listElementContainer');
+/* data.title */
+    const imgListSample = document.createElement('img');
+    imgListSample.classList.add('imgListSample')
+    imgListSample.setAttribute('src', `https://image.tmdb.org/t/p/w500/${item.poster_path}`)
+
+    const titleListSample = document.createElement('h5');
+    titleListSample.classList.add('titleListSample');
+    titleListSample.innerHTML=item.title
+    /* titleListSample.createTextNode(data.title) */
+
+    searchListContainer.appendChild(listElementContainer)
+    listElementContainer.appendChild(imgListSample)
+    listElementContainer.appendChild(titleListSample)
+
+    
+  })
+
+  
+}

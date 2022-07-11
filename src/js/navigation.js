@@ -32,10 +32,15 @@ function homePage(){
 
 function searchPage(){
 
-    console.log('search');
+    
 
     const [_,busqueda] = location.hash.split('=')
-    console.log(busqueda);
+    
+    const busquedasinnada= busqueda.split('%20').join('-')
+        console.log(typeof(busquedasinnada));
+    console.log(busquedasinnada);
+    getMoviesBySearch( busquedasinnada)
+    
     
 }
 function movieDeatailsPage(){

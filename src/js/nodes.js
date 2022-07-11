@@ -3,6 +3,8 @@
 const header = document.querySelector('.header__container')
 
 const searchContainer = document.querySelector('.searchContainer')
+
+const searchListContainer = document.querySelector('.searchListContainer')
 const inputBuscar= document.querySelector('.input__search')
 
 
